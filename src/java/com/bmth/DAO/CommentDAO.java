@@ -67,12 +67,4 @@ public class CommentDAO {
         return list;
     }
      
-     public static void main(String[] args) {
-        CommentDAO dao = new CommentDAO();
-        List<Comment> c = dao.getAllCommentByImageId(1);
-        for(Comment comment : c){
-            System.out.print(comment.toString());
-        }
-    }
-    
 }
