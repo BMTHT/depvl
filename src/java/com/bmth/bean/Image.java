@@ -14,10 +14,19 @@ import java.util.Date;
 public class Image {
     private int imageId;
     private int userId;
-    private StringBuilder imageDescribe;
+    private String imageDescribe;
     private Date imageDate;
     private String category;
     private String urlImage;
+    private float point;
+
+    public float getPoint() {
+        return point;
+    }
+
+    public void setPoint(float point) {
+        this.point = point;
+    }
 
     public int getImageId() {
         return imageId;
@@ -35,11 +44,11 @@ public class Image {
         this.userId = userId;
     }
 
-    public StringBuilder getImageDescribe() {
+    public String getImageDescribe() {
         return imageDescribe;
     }
 
-    public void setImageDescribe(StringBuilder imageDescribe) {
+    public void setImageDescribe(String imageDescribe) {
         this.imageDescribe = imageDescribe;
     }
 
