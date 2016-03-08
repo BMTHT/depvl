@@ -14,12 +14,7 @@ import java.util.List;
  * @author quangbach
  */
 public class ImageDAO {
-    public List<Comment> getAllCommentByImageId(int id){
-        List<Comment> list = null;
-        
-        return list;
-    }
-    
+   
     public Image getImageById(int id){
         Image image = null;
         

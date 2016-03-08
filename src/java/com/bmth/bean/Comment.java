@@ -47,5 +47,10 @@ public class Comment {
         this.comment = comment;
     }
     
+    public String toString(){
+        String s = "";
+        s += this.id + "  " + this.imageId + "  " + this.userId + "  " + this.comment;
+        return s;
+    }
     
 }

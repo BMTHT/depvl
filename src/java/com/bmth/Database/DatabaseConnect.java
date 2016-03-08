@@ -6,19 +6,31 @@
 package com.bmth.Database;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author quangbach
  */
 public class DatabaseConnect {
-    public static final String URL = "jdbc:mysql://localhost/depvl";
-    public static final String DRIVER ="com.mysql.jdbc.Driver";
-    public static final String USERNAME = "root";
-    public static final String PASSWORD = "quangbach";
-    public Connection getDBConnection(){
+    private static final String URL = "jdbc:mysql://localhost/depvl";
+    private static final String DRIVER ="com.mysql.jdbc.Driver";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "quangbach";
+    public static Connection getDBConnection(){
         Connection con = null;
-        
+        try {
+            Class.forName(DRIVER);
+            con = DriverManager.getConnection(URL,USERNAME,PASSWORD);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DatabaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return con;
     }
+   
 }
