@@ -5,12 +5,15 @@
  */
 package com.bmth.controller;
 
+import com.bmth.DAO.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,17 +33,23 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+       String userName = (String)request.getParameter("username");
+       String password =(String) request.getParameter("userpassword");
+       String url = "/index.html";
+       AccountDAO account = new AccountDAO();
+       if(account.checkLogin(userName, password)){
+           HttpSession session = request.getSession(true);
+           session.setAttribute("Admin", userName);
+           request.setAttribute("message", "Login succes");
+          
+       }
+       else {
+           request.setAttribute("message", "Login Fail");
+           url = "/HTML/dangnhap.html";
+       }
+      RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+        if (dispatcher != null) {
+            dispatcher.forward(request, response);
         }
     }
 
