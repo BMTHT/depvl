@@ -19,6 +19,17 @@ public class User {
     private String email;
     private String urlAvatar;
 
+    public User(){}
+    public User(int userId, String fullname, Date birthday, int sex, String email, String urlAvatar) {
+        this.userId = userId;
+        this.fullname = fullname;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.email = email;
+        this.urlAvatar = urlAvatar;
+    }
+
+    
     public int getUserId() {
         return userId;
     }

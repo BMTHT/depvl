@@ -5,11 +5,22 @@
  */
 package com.bmth.DAO;
 
+import com.bmth.bean.Account;
+
 /**
  *
  * @author quangbach
  */
 public class AccountDAO {
+    
+    public boolean addAccount(Account ac){
+        return true;
+    }
+    
+    public boolean addAccount(String username, String password){
+        return true;
+    }
+    
     public boolean checkLogin(String user, String pass){
         return true;
     }

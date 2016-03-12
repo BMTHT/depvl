@@ -6,12 +6,21 @@
 package com.bmth.DAO;
 
 import com.bmth.bean.User;
+import java.util.Date;
 
 /**
  *
  * @author quangbach
  */
 public class UserDAO {
+    
+    public boolean addUser(User user){
+        return true;
+    }
+    
+    public boolean addUser( String fullname, Date birthday, int sex, String email){
+        return true;
+    }
     public User getUserById(int id){
         User user = null;
         
